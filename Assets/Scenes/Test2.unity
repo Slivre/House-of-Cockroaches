@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 143056666}
   - component: {fileID: 143056665}
   - component: {fileID: 143056664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 146346576}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.19, y: 1.179, z: 5.0408926}
+  m_LocalPosition: {x: 10.19, y: 1.179, z: 9.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af055d9008bfd24298679a387149c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2.5
   characterController: {fileID: 146346577}
 --- !u!43 &479561344
 Mesh:
@@ -1194,20 +1194,40 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.02073956
       objectReference: {fileID: 0}
+    - target: {fileID: 5137245186432195115, guid: 478ba3db4713a354796053175ae4dba6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137245186432195115, guid: 478ba3db4713a354796053175ae4dba6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137245186432195115, guid: 478ba3db4713a354796053175ae4dba6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137245186432195115, guid: 478ba3db4713a354796053175ae4dba6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
@@ -1217,7 +1237,7 @@ PrefabInstance:
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22
+      value: 0.227
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
@@ -1227,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
@@ -1237,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
@@ -1252,7 +1272,7 @@ PrefabInstance:
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
@@ -1364,7 +1384,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d87c8bdcbbf3e4cac9dd13419d554a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 3
+  GroundCheckRadius: 0.1
+  GroundCheckOffset: {x: 0, y: 0.02, z: 0}
+  obsticalLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isGrounded: 0
 --- !u!114 &4558035668292363903
 MonoBehaviour:
   m_ObjectHideFlags: 0
