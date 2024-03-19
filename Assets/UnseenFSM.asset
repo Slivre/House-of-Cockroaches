@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: CockyFSM
+  m_Name: UnseenFSM
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":286.0,"y":286.0},"$type":"NodeCanvas.StateMachines.NestedFSMState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: a24c5835ffb1db74a9920ecff2d257f1, type: 2}
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"Speed":3.0,"GroundCheckRadius":0.2,"obsticalLayer":{"value":64},"$type":"NodeCanvas.Tasks.Actions.AT_Move"}]},"_position":{"x":210.0,"y":173.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences: []
   _graphSource:
     _version: 3.29
     _category: 
     _comments: 
-    _translation: {x: 93, y: 54}
+    _translation: {x: 227, y: 37}
     _zoomFactor: 1
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}
