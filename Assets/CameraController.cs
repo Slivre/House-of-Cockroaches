@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
     public float mouseSensitivity = 10f;
     public Transform playerTransform;
 
+
+    float xRotation = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,18 +19,14 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        Vector3 Rotation = new Vector3(-mouseY, mouseX, 0);
+        xRotation -= mouseY;
 
-        transform.Rotate(Rotation);
-        transform.eulerAngles += Rotation;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //Cancel out Z rotation so camera does not tilt
-        transform.Rotate(0,0,-transform.eulerAngles.z);
-
-        transform.position = playerTransform.position;
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerTransform.Rotate(Vector3.up * mouseX);
     }
 }

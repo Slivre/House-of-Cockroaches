@@ -6,29 +6,22 @@ public class PlayerController : MonoBehaviour
 {
     float Xmove;
     float ZMove;
-
-    Rigidbody rb;
     public float speed;
+
+    public CharacterController characterController;
     // Start is called before the first frame update
     void Start()
-    {
-        rb = GetComponent<Rigidbody>();
+    {   
     }
 
     // Update is called once per frame
     void Update()
     {
-        Xmove = Input.GetAxisRaw("Horizontal") * speed;
-        ZMove = Input.GetAxisRaw("Vertical") * speed;
+        Xmove = Input.GetAxis("Horizontal") * speed;
+        ZMove = Input.GetAxis("Vertical") * speed;
 
-        Debug.DrawRay(transform.position, transform.forward * 999f, Color.blue);
-    }
+        Vector3 move = transform.right * Xmove + transform.forward * ZMove;
 
-    private void FixedUpdate()
-    {
-        Vector3 XMovement = transform.right * Xmove;
-        Vector3 ZMovement = transform.forward * ZMove;
-
-        rb.velocity = XMovement + ZMovement;
+        characterController.Move(move * speed * Time.deltaTime);
     }
 }
