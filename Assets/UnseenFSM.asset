@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
   m_Name: UnseenFSM
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"Speed":3.0,"GroundCheckRadius":0.2,"obsticalLayer":{"value":64},"$type":"NodeCanvas.Tasks.Actions.AT_Move"}]},"_position":{"x":210.0,"y":173.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"y":310.0252},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"Speed":3.0,"GroundCheckRadius":0.2,"obsticalLayer":{"value":64},"$type":"NodeCanvas.Tasks.Actions.AT_Move"}]},"_position":{"x":210.0,"y":173.0},"$type":"NodeCanvas.StateMachines.OnFSMUpdate"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"myAnimator":{"_name":"myAnimator","_id":"11d6c1c6-5c8e-4fae-8122-77a807e43210","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
   _objectReferences: []
   _graphSource:
     _version: 3.29

@@ -33,13 +33,14 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+            Debug.DrawRay(agent.transform.position, agent.transform.right * 10f, Color.red);
             GroundCheckDrawPos = agent.transform.position + GroundCheckOffset;
             Collider[] colliders = Physics.OverlapSphere(GroundCheckDrawPos, GroundCheckRadius, obsticalLayer);
             isGrounded = colliders.Length > 0 ? true : false;
 
             if (isGrounded)
             {
-                Debug.Log("Move");
+
                 rb.velocity = agent.transform.right * Speed;
             }
         }
