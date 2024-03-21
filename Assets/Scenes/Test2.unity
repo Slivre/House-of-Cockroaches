@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 146346578}
   - component: {fileID: 146346577}
   - component: {fileID: 146346579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CharacterController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9484,7 +9484,7 @@ PrefabInstance:
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.737
+      value: 9.71
       objectReference: {fileID: 0}
     - target: {fileID: 8487063080688178158, guid: 478ba3db4713a354796053175ae4dba6,
         type: 3}
@@ -21438,7 +21438,7 @@ GameObject:
   - component: {fileID: 823463161}
   - component: {fileID: 823463160}
   - component: {fileID: 823463159}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43770,7 +43770,7 @@ GameObject:
   - component: {fileID: 1599970324}
   - component: {fileID: 1599970327}
   - component: {fileID: 1599970328}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

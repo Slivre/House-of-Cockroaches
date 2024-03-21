@@ -37,13 +37,14 @@ namespace NodeCanvas.Tasks.Conditions {
 				float closestDist = 999f;
 				foreach(Collider food in FoodFound)
                 {
+					Debug.Log(food.gameObject.name);
 					//Get the distance between cocky and food
 					float Dist2Food = Vector3.Distance(food.transform.position, agent.transform.position);
 					//If it is the current closest, set it to the food to go for.
                     if (Dist2Food < closestDist)
                     {
 						closestDist = Dist2Food;
-						FoodPos = food.transform;
+						FoodPos.value = food.transform;
                     }
                 }
 				return true;
