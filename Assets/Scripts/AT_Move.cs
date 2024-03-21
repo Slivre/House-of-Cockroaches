@@ -8,11 +8,10 @@ namespace NodeCanvas.Tasks.Actions {
 	public class AT_Move : ActionTask {
 
         Rigidbody rb;
-        public float Speed;
+        public BBParameter<float> speed;
 
         public float GroundCheckRadius;
-        public Vector3 GroundCheckOffset;
-        Vector3 GroundCheckDrawPos;
+        public BBParameter<Transform> GroundCheckTrans;
 
         public LayerMask obsticalLayer;
 
@@ -21,6 +20,7 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<Animator> ac;
         public BBParameter<Transform> FrontCheck;
         public float FrontCheckDist;
+
 
         RaycastHit hit;
 
@@ -35,30 +35,24 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			
-		}
+        }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {               
-            GroundCheckDrawPos = agent.transform.position + GroundCheckOffset;
-            Collider[] colliders = Physics.OverlapSphere(GroundCheckDrawPos, GroundCheckRadius, obsticalLayer);
-            isGrounded = colliders.Length > 0 ? true : false;
-
-            //Draw a ray pointing towards the bottom.
-            Debug.DrawRay(agent.transform.position, -agent.transform.up * 10f, Color.green);
-
-            
+            Collider[] colliders = Physics.OverlapSphere(GroundCheckTrans.value.position, GroundCheckRadius, obsticalLayer);
+            isGrounded = colliders.Length > 0 ? true : false;  
 
             //If it is not grounded, switch to fly mode.
             if (!isGrounded)
             {
-                rb.velocity = agent.transform.right * Speed * 1.5f;
+                MoveTowards();
+                ac.value.SetBool("Flying", true);
             }
             //If is grounded, walk
             else
             {
-                ac.value.SetBool("Walking", true);
-                rb.velocity = agent.transform.right * Speed;
+                MoveTowards();
+                ac.value.SetBool("Flying", false);
             }
 
             ClimbWalls();
@@ -74,40 +68,43 @@ namespace NodeCanvas.Tasks.Actions {
 			
 		}
 
+        /// <summary>
+        /// Move function without target, move forward
+        /// </summary>
+        public void MoveTowards()
+        {
+            rb.velocity = agent.transform.right * speed.value;
+        }
+
+
+
         //Climb Walls
         public void ClimbWalls()
         {
-
             //Draw Front Ray
             Debug.DrawRay(FrontCheck.value.position, agent.transform.right*999,Color.cyan);
             Ray frontRay = new Ray(FrontCheck.value.position, agent.transform.right);
 
-
-            //check if there is Object in front
-            bool FrontObjectDetected = Physics.Raycast(frontRay,out hit, FrontCheckDist,obsticalLayer);
-            //If there is......
-            if (FrontObjectDetected)
+            //If front ray hit a  obstical
+            if (Physics.Raycast(frontRay, out hit, FrontCheckDist, obsticalLayer))
             {
                 //Find and Rotate it towards the perpendicular angle to stick on wall
                 Vector3 cross = Vector3.Cross(agent.transform.right, hit.normal);
                 float Zangle = Vector3.Angle(agent.transform.right, cross);
-                agent.transform.Rotate(0, 0, Zangle);
-
-                
+                agent.transform.Rotate(0, 0, Zangle);            
             }
 
-            //Debugging helps
-            RaycastHit InfiHit = new RaycastHit();
-            bool frontRayInifinite = Physics.Raycast(frontRay, out InfiHit, obsticalLayer);
-            if (frontRayInifinite)
+            //Cast a ray from the bottom of the cockroach
+            Ray BotRay = new Ray(agent.transform.position, -agent.transform.up);
+            //If bot ray hit a obstical
+            if (Physics.Raycast(BotRay, out hit, 0.5f, obsticalLayer))
             {
-                Debug.DrawRay(InfiHit.point, InfiHit.normal * 99f, Color.magenta);
+                //Added some force towards the bottom direction to help cocky stick.
+                rb.AddForce(-agent.transform.up * 2);
             }
 
-
-        }
-
-
-        
+                //Draw a ray pointing towards the bottom.
+                Debug.DrawRay(agent.transform.position, -agent.transform.up * 0.5f, Color.green);
+        }        
 	}
 }

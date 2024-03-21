@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124013546141485772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9210698431849858895}
+  m_Layer: 0
+  m_Name: GroundCheckPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9210698431849858895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124013546141485772}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0009474045, y: -0.0144, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5137245186432195115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7586530320293552134
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +463,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3821738444571110958, guid: 40e198b46c1156648886a6b0ce3165a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9210698431849858895}
     - targetCorrespondingSourceObject: {fileID: 4299742217088321251, guid: 40e198b46c1156648886a6b0ce3165a4,
         type: 3}
       insertIndex: -1
@@ -489,9 +524,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1220239, y: 0.028524429, z: 0.051588617}
   m_Center: {x: -0.030000001, y: 0, z: 0}
+--- !u!4 &5137245186432195115 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3821738444571110958, guid: 40e198b46c1156648886a6b0ce3165a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8233322953567974405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5325897269372908262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299742217088321251, guid: 40e198b46c1156648886a6b0ce3165a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8233322953567974405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7269686081938516311 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1630794972795428178, guid: 40e198b46c1156648886a6b0ce3165a4,
     type: 3}
   m_PrefabInstance: {fileID: 8233322953567974405}
   m_PrefabAsset: {fileID: 0}
@@ -608,3 +655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5981598600469789523}
   FrontRayPos: {fileID: 1178219798189014706}
+  CockyRenderer: {fileID: 7269686081938516311}
+  GroundCheckRadius: 0.075
+  GroundCheckTrans: {fileID: 9210698431849858895}
