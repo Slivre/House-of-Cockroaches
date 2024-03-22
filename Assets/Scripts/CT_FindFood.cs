@@ -31,7 +31,7 @@ namespace NodeCanvas.Tasks.Conditions {
 			Collider[] FoodFound = Physics.OverlapSphere(agent.transform.position, SearchRadius, foodLayers);
 
 			//If any was found......
-			if (FoodFound.Length > 1)
+			if (FoodFound.Length > 0)
             {
 				//Check which is closet
 				float closestDist = 999f;

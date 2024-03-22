@@ -16,5 +16,9 @@ public class CockyVariables : MonoBehaviour
         Gizmos.DrawSphere(GroundCheckTrans.position, GroundCheckRadius);
     }
 
-    
+    //Animation event methods
+    public void StopEating()
+    {
+        animator.SetBool("Eating", false);
+    }
 }

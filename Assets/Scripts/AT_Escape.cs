@@ -5,8 +5,6 @@ using UnityEngine;
 namespace NodeCanvas.Tasks.Actions {
 
 	public class AT_Escape : ActionTask {
-
-        public BBParameter<Animator> ac;
         public BBParameter<float> speed;
 
 		public float initialSpeed;
@@ -21,7 +19,6 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			ac.value.SetBool("Walking", true);
 			speed.value = initialSpeed;
 		}
 

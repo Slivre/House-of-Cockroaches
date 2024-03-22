@@ -9,6 +9,7 @@ namespace NodeCanvas.Tasks.Actions {
 
         Rigidbody rb;
         public BBParameter<float> speed;
+        public BBParameter<Transform> Player;
 
         public float GroundCheckRadius;
         public BBParameter<Transform> GroundCheckTrans;
@@ -28,6 +29,7 @@ namespace NodeCanvas.Tasks.Actions {
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
             rb = agent.GetComponent<Rigidbody>();
+            Player.value = GameObject.Find("Player").transform;
             return null;
 		}
 
@@ -45,17 +47,17 @@ namespace NodeCanvas.Tasks.Actions {
             //If it is not grounded, switch to fly mode.
             if (!isGrounded)
             {
-                MoveTowards();
                 ac.value.SetBool("Flying", true);
             }
             //If is grounded, walk
             else
             {
-                MoveTowards();
                 ac.value.SetBool("Flying", false);
             }
 
+            MoveTowards();
             ClimbWalls();
+            ac.value.SetFloat("Speed", speed.value);
         }
 
 		//Called when the task is disabled.
