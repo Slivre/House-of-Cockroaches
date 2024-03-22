@@ -32,14 +32,22 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
-            if (Vector3.Distance(Target.value.position, agent.transform.position)<= InRangeDistance)
+
+            if (Target.value != null)
             {
-				return true;
-            }
+				if (Vector3.Distance(Target.value.position, agent.transform.position) <= InRangeDistance)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
             else
             {
 				return false;
-			}
+            }
 		}
 	}
 }
